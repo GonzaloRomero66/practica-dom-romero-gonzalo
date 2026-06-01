@@ -18,6 +18,12 @@ function renderizar(personajes) {
         <div class="card">
             <img src="${personajes[i].imagen}">
             <h5>${personajes[i].nombre}</h5>
+            <button class="btn btn-primary">
+            Mostrar
+            </button>
+            <button class="btn btn-danger">
+            Eliminar
+            </button>
         </div>
     `;
 }
