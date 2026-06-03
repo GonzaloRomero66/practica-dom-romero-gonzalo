@@ -12,6 +12,8 @@ const personajes = [
 ];
 const nuevoarreglo = [personajes]
 
+contenedor.innerHTML = "";
+
 const contenedor = document.getElementById("contenedor");
 function renderizar(personajes) {
     for(let i = 0; i < personajes.length; i++) {
@@ -23,12 +25,37 @@ function renderizar(personajes) {
             <div class="card-body">
             <h5>${personajes[i].nombre}</h5>
             </button>
-            <button class="btn btn-danger boton-eliminar">
+            < class="btn btn-danger boton-eliminar">
             Eliminar
-            </button>
         </div>
         </div>
     `;
 }
 }
 renderizar(personajes);
+
+    const formulario = document.createElement("form");
+
+    formulario.innerHTML =`
+    <input type="text" id="nombre" placeholder="Nombre"> 
+    <input type="text" id="imagen" placeholder="Imagen o URL">
+    <button type="submit" >Agregar</button>
+    `;
+
+    document.body.appendChild(formulario);
+
+    formulario.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const imagen = document.getElementById("imagen").value; 
+
+    const nuevopersonaje = {
+        id: personajes.length + 1,
+        nombre: nombre,
+        imagen: imagen
+    };    
+    personajes.push(nuevopersonaje);
+
+    renderizar(personajes);
+    })
