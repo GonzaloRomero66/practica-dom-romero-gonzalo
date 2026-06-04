@@ -12,10 +12,9 @@ const personajes = [
 ];
 const nuevoarreglo = [personajes]
 
-contenedor.innerHTML = "";
-
 const contenedor = document.getElementById("contenedor");
 function renderizar(personajes) {
+    contenedor.innerHTML = "";
     for(let i = 0; i < personajes.length; i++) {
     contenedor.innerHTML += `
     <div class="col-3 my-3">
@@ -25,16 +24,15 @@ function renderizar(personajes) {
             <div class="card-body">
             <h5>${personajes[i].nombre}</h5>
             </button>
-            < class="btn btn-danger boton-eliminar">
+            <button class="btn btn-danger boton-eliminar">
             Eliminar
+            </button>
         </div>
         </div>
     `;
 }
 }
-renderizar(personajes);
-
-    const formulario = document.createElement("form");
+const formulario = document.createElement("form");
 
     formulario.innerHTML =`
     <input type="text" id="nombre" placeholder="Nombre"> 
@@ -56,6 +54,11 @@ renderizar(personajes);
         imagen: imagen
     };    
     personajes.push(nuevopersonaje);
+        renderizar(personajes);
 
-    renderizar(personajes);
+
+    formulario.reset();
     })
+renderizar(personajes);
+
+    
