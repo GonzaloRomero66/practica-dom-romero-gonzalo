@@ -11,6 +11,19 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .card-animada {
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .card-animada:hover {
+        transform: scale(1.05) !important;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 10;
+      }
+    </style>
   </head>
   <body>
     <main class="text-center">

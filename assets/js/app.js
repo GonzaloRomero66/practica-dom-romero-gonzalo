@@ -18,7 +18,7 @@ function renderizar(personajes) {
     for(let i = 0; i < personajes.length; i++) {
     contenedor.innerHTML += `
     <div class="col-3 my-3">
-    <div class="card" style= "width: 18rem">
+    <div class="card card-animada" style= "width: 18rem">
             <img src="${personajes[i].imagen}"
             >
             <div class="card-body">
