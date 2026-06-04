@@ -11,7 +11,7 @@ const personajes = [
 "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg" },
 ];
 const nuevoarreglo = [personajes]
-
+  
 const contenedor = document.getElementById("contenedor");
 function renderizar(personajes) {
     contenedor.innerHTML = "";
@@ -70,6 +70,20 @@ const formulario = document.createElement("form");
     renderizar(personajes);
     formulario.reset();
     })
+  const buscador = document.createElement("input")
+    buscador.type = "text"
+    buscador.placeholder = "Busca personaje"
+
+    document.body.prepend(buscador);
+    buscador.addEventListener("input", () => {
+    const texto = buscador.value.toLowerCase();
+
+    const filtrados = personajes.filter(personaje =>
+        personaje.nombre.toLowerCase().includes(texto)
+    );
+
+    renderizar(filtrados);
+});
 
 
 
