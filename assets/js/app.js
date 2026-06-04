@@ -23,7 +23,6 @@ function renderizar(personajes) {
             >
             <div class="card-body">
             <h5>${personajes[i].nombre}</h5>
-            </button>
             <button class="btn btn-danger boton-eliminar" data-id="${personajes[i].id}">
             Eliminar
             </button>
@@ -32,21 +31,20 @@ function renderizar(personajes) {
     `;
 }
 }
-renderizar(personajes);
-const botonEliminar = document.querySelectorAll(".boton-eliminar");
-botonEliminar.forEach(boton => {
-    boton.addEventListener("click", () => 
-    {
-        const id = Number(boton.dataset.id)
+ renderizar(personajes)
 
+    contenedor.addEventListener("click", (e) => {
+        if (e.target.classList.contains("boton-eliminar")){
+        const id = Number(e.target.dataset.id)
+        
         const indice = personajes.findIndex (
             personaje => personaje.id === id
         );
+        if (indice !== -1 ){
+        
         personajes.splice(indice, 1);
-
-        renderizar(personajes); 
+        renderizar(personajes); }}
     });
-});
 const formulario = document.createElement("form");
 
     formulario.innerHTML =`
@@ -69,9 +67,7 @@ const formulario = document.createElement("form");
         imagen: imagen
     };    
     personajes.push(nuevopersonaje);
-        renderizar(personajes);
-
-
+    renderizar(personajes);
     formulario.reset();
     })
 
